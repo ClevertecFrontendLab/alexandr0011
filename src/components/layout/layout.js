@@ -14,7 +14,7 @@ export function Layout() {
   const books = useSelector((state) => state.books);
   const book = useSelector((state) => state.book)
   const dispatch = useDispatch();
-  const error = (categories.error || books.error || book.error) && <ErrorComponent />;
+  const error = (categories.error || books.error) && <ErrorComponent />;
   const loading = (categories.loading || books.loading || book.loading) && <Loader />;
 
   useEffect(() => {
