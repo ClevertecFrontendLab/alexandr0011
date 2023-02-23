@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
-import { Header } from '../header/header';
-import { Footer } from '../footer/footer';
-import { ErrorComponent } from '../error-component/error-component';
-import { Loader } from '../loader/loader';
+
 import { getCategories } from '../../redux/reducers/categories-reducer';
+import { ErrorComponent } from '../error-component/error-component';
+import { Footer } from '../footer/footer';
+import { Header } from '../header/header';
+import { Loader } from '../loader/loader';
 
 import styles from './layout.module.scss';
 

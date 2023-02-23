@@ -1,9 +1,11 @@
 import { useDispatch } from 'react-redux';
-import { closeCategoriesError } from '../../redux/reducers/categories-reducer';
-import { closeBooksError } from '../../redux/reducers/books-reducer';
+
 import { closeBookError } from '../../redux/reducers/book-reducer';
-import negativeImg from '../../resources/img/negative.png';
+import { closeBooksError } from '../../redux/reducers/books-reducer';
+import { closeCategoriesError } from '../../redux/reducers/categories-reducer';
 import crossImg from '../../resources/img/cross.png';
+import negativeImg from '../../resources/img/negative.png';
+
 import styles from './error-component.module.scss';
 
 const ERROR_MESSAGE = 'Что-то пошло не так. Обновите страницу через некоторое время.';

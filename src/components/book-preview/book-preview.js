@@ -1,6 +1,7 @@
-import styles from './book-preview.module.scss';
 import defaultBookImg from '../../resources/img/default_book_preview.png';
 import { Slider } from '../slider/slider';
+
+import styles from './book-preview.module.scss';
 
 export function BookPreview({ description, author, title, img }) {
   const bookImg = (
@@ -14,7 +15,9 @@ export function BookPreview({ description, author, title, img }) {
       <div className={styles.container}>
         <div className={styles.book_img}>{img?.length > 1 ? <Slider img={img} /> : bookImg}</div>
         <div className={styles.book_content}>
-          <div className={styles.book_title}>{title}</div>
+          <div data-test-id='book-title' className={styles.book_title}>
+            {title}
+          </div>
           <div className={styles.book_author}>{author}</div>
           <button className={styles.btn} type='button'>
             Забронировать

@@ -1,10 +1,12 @@
-import { NavLink, useMatch } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink, useMatch } from 'react-router-dom';
+
 import { closeBooksError } from '../../redux/reducers/books-reducer';
 import { closeCategoriesError } from '../../redux/reducers/categories-reducer';
-import styles from './navigation-list.module.scss';
 import arrowSvg from '../../resources/svg/accordion_arrow.svg';
+
+import styles from './navigation-list.module.scss';
 
 export function NavigationList({
   closeBurgerHandler,
@@ -13,6 +15,7 @@ export function NavigationList({
   categoryBooksTestId,
   termsTestId,
   contactsTestId,
+  categoriesBookCount
 }) {
   const [isAccordionOpen, setIsAccordionOpen] = useState(true);
   const match = useMatch({
@@ -21,6 +24,7 @@ export function NavigationList({
   });
   const dispatch = useDispatch();
   const { categories } = useSelector((state) => state.categories);
+  const { books } = useSelector((state) => state.books);
 
   const activeLink = ({ isActive }) => (isActive ? styles.active_link : '');
 
@@ -51,16 +55,21 @@ export function NavigationList({
     }
   }
 
+  function getCategoryCount(category) {
+    return books.filter(book => book.categories.includes(category)).length
+  }
+
   const booksCategorylinks = categories.map((category) => (
     <li key={category.id}>
       <NavLink
-        data-test-id={categoryBooksTestId}
+        data-test-id={`${categoryBooksTestId}${category.path}`}
         to={`books/${category.path}`}
         onClick={() => closeBurgerHandler && closeBurgerHandler()}
         className={({ isActive }) => `${isActive ? styles.book_category_link_active : ''}`}
       >
-        {category.name} <span>0</span>
+        {category.name} 
       </NavLink>
+      <span data-test-id={`${categoriesBookCount}${category.path}`}>{getCategoryCount(category.name)}</span>
     </li>
   ));
 
@@ -83,7 +92,7 @@ export function NavigationList({
         <ul className={!isAccordionOpen ? styles.list_items : styles.list_items_active}>
           <li>
             <NavLink
-              data-test-id={categoryBooksTestId}
+              data-test-id={`${categoryBooksTestId}books`}
               to='books/all'
               onClick={() => closeBurgerHandler && closeBurgerHandler()}
               className={({ isActive }) => `${isActive ? styles.book_category_link_active : ''}`}

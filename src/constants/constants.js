@@ -1,7 +1,7 @@
 import fbLogo from '../resources/img/fb_logo.png';
 import igLogo from '../resources/img/ig_logo.png';
-import vkLogo from '../resources/img/vk_logo.png';
 import inLogo from '../resources/img/in_logo.png';
+import vkLogo from '../resources/img/vk_logo.png';
 
 export const TERMS_PAGE_NAME = 'Правила пользования';
 export const AGREEMENT_PAGE_NAME = 'Договор оферты';

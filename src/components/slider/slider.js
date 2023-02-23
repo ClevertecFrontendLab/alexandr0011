@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
+import { FreeMode, Navigation, Pagination, Scrollbar, Thumbs } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { FreeMode, Navigation, Thumbs, Pagination, Scrollbar } from 'swiper';
 import { v4 as uuidv4 } from 'uuid';
+
+import './slider.scss';
 
 import 'swiper/css';
 import 'swiper/css/free-mode';
@@ -10,13 +12,12 @@ import 'swiper/css/thumbs';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-import './slider.scss';
-
 export function Slider({ img }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const swiper = thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null
+  const swiper = thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null;
+
   return (
-    <>
+    <Fragment>
       <Swiper
         spaceBetween={10}
         navigation={true}
@@ -51,6 +52,6 @@ export function Slider({ img }) {
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </Fragment>
   );
 }

@@ -1,4 +1,5 @@
 import { SOCIAL_NETWORKS } from '../../constants/constants';
+
 import styles from './footer.module.scss';
 
 export function Footer() {

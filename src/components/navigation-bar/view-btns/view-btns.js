@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
-import { SvgCollection } from '../../../resources/svg/svg-collection';
+
 import { VIEW_TYPE_LIST, VIEW_TYPE_TILE } from '../../../constants/constants';
+import { SvgCollection } from '../../../resources/svg/svg-collection';
+
 import styles from './view-btns.module.scss';
 
 export function ViewBtns({ viewType, onChangeViewHandler }) {

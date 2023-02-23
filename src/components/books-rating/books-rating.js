@@ -1,6 +1,8 @@
+import { Fragment, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Fragment, useState, useEffect } from 'react';
+
 import { SvgCollection } from '../../resources/svg/svg-collection';
+
 import styles from './books-rating.module.scss';
 
 const STARS = 5;
@@ -14,8 +16,8 @@ export function BooksRating({ id, rating }) {
   }
 
   useEffect(() => {
-    setBooksRating(Math.round(rating))
-  }, [rating])
+    setBooksRating(Math.round(rating));
+  }, [rating]);
 
   for (let i = 1; i <= STARS; i++) {
     starItems.unshift(

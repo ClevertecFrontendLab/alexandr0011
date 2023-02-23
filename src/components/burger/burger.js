@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import cn from 'classnames';
+
 import { NavigationList } from '../navigation-list/navigation-list';
+
 import styles from './burger.module.scss';
 
 export function Burger() {
@@ -63,9 +65,10 @@ export function Burger() {
             closeBurgerHandler={() => closeBurgerHandler()}
             checkAccordionState={(boolean) => checkAccordionState(boolean)}
             booksStoreTestId='burger-showcase'
-            categoryBooksTestId='burger-books'
+            categoryBooksTestId='burger-'
             termsTestId='burger-terms'
             contactsTestId='burger-contract'
+            categoriesBookCount='burger-book-count-for-'
           />
           <div className={styles.account_links_wrapper}>
             <ul>

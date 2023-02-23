@@ -1,13 +1,15 @@
-import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useEffect, Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BreadCrumb } from '../../components/bread-crumb/bread-crumb';
-import { BooksRating } from '../../components/books-rating/books-rating';
+import { useParams } from 'react-router-dom';
+
 import { AboutBook } from '../../components/about-book/about-book';
-import { BookReviews } from '../../components/book-reviews/book-reviews';
 import { BookPreview } from '../../components/book-preview/book-preview';
+import { BookReviews } from '../../components/book-reviews/book-reviews';
+import { BooksRating } from '../../components/books-rating/books-rating';
+import { BreadCrumb } from '../../components/bread-crumb/bread-crumb';
 import { ErrorComponent } from '../../components/error-component/error-component';
-import { getBook, clearBook } from '../../redux/reducers/book-reducer';
+import { clearBook, getBook } from '../../redux/reducers/book-reducer';
+
 import styles from './book-page.module.scss';
 
 export function BookPage() {
@@ -37,6 +39,7 @@ export function BookPage() {
 
   useEffect(() => {
     dispatch(getBook(path.id));
+
     return () => {
       dispatch(clearBook());
     };
@@ -47,8 +50,8 @@ export function BookPage() {
       {error ? (
         <ErrorComponent />
       ) : (
-        <>
-          <BreadCrumb categoryPath={path.category} categories={categories[0]} title={title} />
+        <Fragment>
+          <BreadCrumb categoryPath={path.category} title={title} />
           <div className={styles.wrapper}>
             <BookPreview description={description} author={author} title={title} img={images} />
             <section className={styles.rating_wrapper}>
@@ -71,7 +74,7 @@ export function BookPage() {
             />
             <BookReviews comments={comments} />
           </div>
-        </>
+        </Fragment>
       )}
     </main>
   );
