@@ -1,14 +1,16 @@
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 import cn from 'classnames';
-import { FilterBtn } from './filter-btn/filter-btn';
-import { ViewBtns } from './view-btns/view-btns';
-import styles from './navigation-bar.module.scss';
+import PropTypes from 'prop-types';
+
 import cross from '../../resources/svg/cross.svg';
 import searchSvg from '../../resources/svg/search.svg';
 
-export function NavigationBar({ viewType, onChangeViewHandler }) {
-  const [searchInputValue, setSearchInputValue] = useState('');
+import { FilterBtn } from './filter-btn/filter-btn';
+import { ViewBtns } from './view-btns/view-btns';
+
+import styles from './navigation-bar.module.scss';
+
+export function NavigationBar({ viewType, onChangeViewHandler, searchInputText, setSearchInputText }) {
   const [searchIsOpen, setSearchIsOpen] = useState(false);
 
   function toogleSearch() {
@@ -26,8 +28,8 @@ export function NavigationBar({ viewType, onChangeViewHandler }) {
             data-test-id='input-search'
             type='text'
             placeholder='Поиск книги или автора…'
-            value={searchInputValue}
-            onChange={(e) => setSearchInputValue(e.target.value)}
+            value={searchInputText}
+            onChange={(e) => setSearchInputText(e.target.value)}
           />
           <a className={styles.search_link}>
             <div />
@@ -46,4 +48,6 @@ export function NavigationBar({ viewType, onChangeViewHandler }) {
 NavigationBar.propTypes = {
   viewType: PropTypes.string,
   onChangeViewHandler: PropTypes.func,
+  searchInputText: PropTypes.string,
+  setSearchInputText: PropTypes.func,
 };

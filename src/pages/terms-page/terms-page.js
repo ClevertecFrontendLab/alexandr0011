@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+
 import styles from './terms-page.module.scss';
 
 export function TermsPage({ pageName }) {

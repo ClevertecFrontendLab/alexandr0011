@@ -1,7 +1,8 @@
-import { Burger } from '../burger/burger';
-import styles from './header.module.scss';
-import cleverlandLogo from '../../resources/img/logo.png';
 import avatarImg from '../../resources/img/avatar.png';
+import cleverlandLogo from '../../resources/img/logo.png';
+import { Burger } from '../burger/burger';
+
+import styles from './header.module.scss';
 
 const USERNAME = 'Иван';
 

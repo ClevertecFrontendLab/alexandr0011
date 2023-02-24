@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
 import cn from 'classnames';
-import { Comments } from '../comment/comment';
-import styles from './book-reviews.module.scss';
+
 import chevronImg from '../../resources/img/review_chevron.png';
+import { Comments } from '../comment/comment';
+
+import styles from './book-reviews.module.scss';
 
 export function BookReviews({ comments }) {
   const [isAccordionOpen, setIsAccordionOpen] = useState(true);
@@ -31,10 +33,10 @@ export function BookReviews({ comments }) {
       </div>
 
       {comments?.length && (
-        <>
+        <Fragment>
           <div className={styles.reviews_title_border} />
           <Comments comments={comments} isAccordionOpen={isAccordionOpen} />
-        </>
+        </Fragment>
       )}
       <div className={styles.btn_wrapper}>
         <button data-test-id='button-rating' className={styles.review_btn} type='button'>

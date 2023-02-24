@@ -1,4 +1,5 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk,createSlice } from '@reduxjs/toolkit';
+
 import { service } from '../../services/service';
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
 export const getCategories = createAsyncThunk('categories/getCategories', async (_, { rejectWithValue }) => {
   try {
     const response = await service.get('categories');
+
     return response.data;
   } catch (error) {
     return rejectWithValue(error.message);

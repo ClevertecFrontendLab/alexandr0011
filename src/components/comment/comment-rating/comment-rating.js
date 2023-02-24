@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
+
 import { SvgCollection } from '../../../resources/svg/svg-collection';
+
 import styles from './comment-rating.module.scss';
 
 const STARS = 5;

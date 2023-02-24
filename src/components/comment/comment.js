@@ -1,7 +1,10 @@
 import cn from 'classnames';
-import { CommentRating } from './comment-rating/comment-rating';
-import styles from './comment.module.scss';
+
 import defaultAvatar from '../../resources/img/default_reviewer_avatar.png';
+
+import { CommentRating } from './comment-rating/comment-rating';
+
+import styles from './comment.module.scss';
 
 export function Comments({ comments, isAccordionOpen }) {
 
@@ -10,6 +13,7 @@ export function Comments({ comments, isAccordionOpen }) {
     const reverse = date.split('-').reverse().join(' ');
     const month = reverse.slice(3, 5);
     let monthStr;
+
     switch (month) {
       case '01':
         monthStr = 'Январь';
