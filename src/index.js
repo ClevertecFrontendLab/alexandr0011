@@ -2,10 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
-
+import { RequireAuth } from './hoc/require-auth';
+import { AuthRedirect } from './hoc/is-auth-redirect';
 import { Layout } from './components/layout/layout';
+import { LayoutAuthPage } from './components/layout-auth-page/layout-auth-page';
 import { LayoutMainPage } from './components/layout-main-page/layout-main-page';
 import { AGREEMENT_PAGE_NAME, TERMS_PAGE_NAME } from './constants/constants';
+import { AuthForm, RegisterForm, ForgotPassForm } from './components/forms';
 import { BookPage } from './pages/book-page/book-page';
 import { BooksPage } from './pages/books-page/books-page';
 import { TermsPage } from './pages/terms-page/terms-page';
@@ -20,7 +23,41 @@ root.render(
     <Provider store={store}>
       <HashRouter>
         <Routes>
-          <Route path='/' element={<Layout />}>
+          <Route element={<LayoutAuthPage />}>
+            <Route
+              path='auth'
+              element={
+                <AuthRedirect>
+                  <AuthForm />
+                </AuthRedirect>
+              }
+            />
+            <Route
+              path='registration'
+              element={
+                <AuthRedirect>
+                  <RegisterForm />
+                </AuthRedirect>
+              }
+            />
+            <Route
+              path='forgot-pass'
+              element={
+                <AuthRedirect>
+                  <ForgotPassForm />
+                </AuthRedirect>
+              }
+            />
+          </Route>
+
+          <Route
+            path='/'
+            element={
+              <RequireAuth>
+                <Layout />
+              </RequireAuth>
+            }
+          >
             <Route element={<LayoutMainPage />}>
               <Route path='/' element={<Navigate to='books/all' />} />
               <Route path='books/:category' element={<BooksPage />} />

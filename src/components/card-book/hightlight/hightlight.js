@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import styles from './hightlight.module.scss'
 
 export function Hightlight({ filter, string, strLength }) {
   const croppedString = string.length < strLength ? string : `${string.slice(0, strLength)}...`;
@@ -16,7 +17,7 @@ export function Hightlight({ filter, string, strLength }) {
         return (
           <Fragment key={uuidv4()}>
             {str}
-            <span data-test-id='highlight-matches' style={{ color: '#FF5253' }}>
+            <span data-test-id='highlight-matches' className={styles.hightlight}>
               {matchStr}
             </span>
           </Fragment>

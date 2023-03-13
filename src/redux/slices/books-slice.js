@@ -1,6 +1,6 @@
 import { createAsyncThunk,createSlice } from '@reduxjs/toolkit';
 
-import { service } from '../../services/service';
+import { axiosApi } from '../../services/axios-api';
 
 const initialState = {
   books: [],
@@ -18,7 +18,7 @@ function getLowRating(a, b) {
 
 export const getBooks = createAsyncThunk('books/getBooks', async (_, { rejectWithValue }) => {
   try {
-    const response = await service.get('books');
+    const response = await axiosApi.get('books');
 
     return response.data;
   } catch (error) {

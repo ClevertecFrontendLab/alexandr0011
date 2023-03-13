@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import cn from 'classnames';
 
 import { NavigationList } from '../navigation-list/navigation-list';
+import { removeUser } from '../../redux/slices/user-slice';
 
 import styles from './burger.module.scss';
 
@@ -9,6 +12,8 @@ export function Burger() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [burgerClass, setBurgerClass] = useState(cn(styles.burger_btn_item, styles.unclicked));
   const [isAccordionOpen, setIsAccordionOpen] = useState(true);
+  const dispatch = useDispatch();
+
   const accordionStyles = isAccordionOpen ? cn(styles.burger_backdrop, styles.scroll) : styles.burger_backdrop;
   const burgerMenuStyles = isOpenMenu ? styles.burger_backdrop : cn(styles.burger_backdrop, styles.hide);
 
@@ -37,6 +42,10 @@ export function Burger() {
     if (className === styles.burger_background) {
       closeBurgerHandler();
     }
+  }
+
+  function logOutHandler() {
+    dispatch(removeUser());
   }
 
   useEffect(() => {
@@ -76,7 +85,7 @@ export function Burger() {
                 <a href='/'>Профиль</a>
               </li>
               <li>
-                <a href='/'>Выход</a>
+                <NavLink data-test-id="exit-button" onClick={() => logOutHandler()}>Выход</NavLink>
               </li>
             </ul>
           </div>

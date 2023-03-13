@@ -9,6 +9,8 @@ export const AGREEMENT_PAGE_NAME = 'Договор оферты';
 export const VIEW_TYPE_TILE = 'tile';
 export const VIEW_TYPE_LIST = 'list';
 
+export const REGISTER_URL = 'register';
+
 const FACEBOOK = {
   id: 1,
   name: 'facebook',

@@ -97,8 +97,8 @@
         transition: ease-in-out 0.3s;
       }
       .burger_backdrop.scroll {
-        overflow: auto;
-        height: 90vh;
+        // overflow: auto;
+        // height: 90vh;
       }
     }
     .burger_background.none {
@@ -108,7 +108,7 @@
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 360px) {
   .burger_wrapper {
     .burger_menu {
       .burger_btn_item {

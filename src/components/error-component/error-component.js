@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
 
-import { closeBookError } from '../../redux/reducers/book-reducer';
-import { closeBooksError } from '../../redux/reducers/books-reducer';
-import { closeCategoriesError } from '../../redux/reducers/categories-reducer';
+import { closeBookError } from '../../redux/slices/book-slice';
+import { closeBooksError } from '../../redux/slices/books-slice';
+import { closeCategoriesError } from '../../redux/slices/categories-slice';
 import crossImg from '../../resources/img/cross.png';
 import negativeImg from '../../resources/img/negative.png';
 
