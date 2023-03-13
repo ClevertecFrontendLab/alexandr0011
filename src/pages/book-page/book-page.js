@@ -8,7 +8,7 @@ import { BookReviews } from '../../components/book-reviews/book-reviews';
 import { BooksRating } from '../../components/books-rating/books-rating';
 import { BreadCrumb } from '../../components/bread-crumb/bread-crumb';
 import { ErrorComponent } from '../../components/error-component/error-component';
-import { clearBook, getBook } from '../../redux/reducers/book-reducer';
+import { clearBook, getBook } from '../../redux/slices/book-slice';
 
 import styles from './book-page.module.scss';
 

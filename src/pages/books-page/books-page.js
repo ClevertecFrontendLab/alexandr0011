@@ -7,7 +7,7 @@ import { ErrorComponent } from '../../components/error-component/error-component
 import { NavigationBar } from '../../components/navigation-bar/navigation-bar';
 import { SearchNotification } from '../../components/search-notification/search-notification';
 import { VIEW_TYPE_TILE } from '../../constants/constants';
-import { getBooks } from '../../redux/reducers/books-reducer';
+import { getBooks } from '../../redux/slices/books-slice';
 
 import styles from './books-page.module.scss';
 

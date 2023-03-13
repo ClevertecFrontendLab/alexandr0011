@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { ratingFilter } from '../../../redux/reducers/books-reducer';
+import { ratingFilter } from '../../../redux/slices/books-slice';
 import sortDownSvg from '../../../resources/svg/sort_down.svg';
 import sortUpSvg from '../../../resources/svg/sort_up.svg';
 

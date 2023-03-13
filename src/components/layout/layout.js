@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 
-import { getCategories } from '../../redux/reducers/categories-reducer';
+import { getCategories } from '../../redux/slices/categories-slice';
 import { ErrorComponent } from '../error-component/error-component';
 import { Footer } from '../footer/footer';
 import { Header } from '../header/header';

@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useMatch } from 'react-router-dom';
 
-import { closeBooksError } from '../../redux/reducers/books-reducer';
-import { closeCategoriesError } from '../../redux/reducers/categories-reducer';
+import { closeBooksError } from '../../redux/slices/books-slice';
+import { closeCategoriesError } from '../../redux/slices/categories-slice';
 import arrowSvg from '../../resources/svg/accordion_arrow.svg';
 
 import styles from './navigation-list.module.scss';
@@ -17,7 +17,7 @@ export function NavigationList({
   contactsTestId,
   categoriesBookCount
 }) {
-  const [isAccordionOpen, setIsAccordionOpen] = useState(true);
+  const [isAccordionOpen, setIsAccordionOpen] = useState(false);
   const match = useMatch({
     path: 'books',
     end: false,

@@ -10,9 +10,10 @@ module.exports = {
         'config/**/*.ts',
         'src/global-definitions.d.ts',
         'src/libs.d.ts',
-        'src/**/*categories-reducer.js',
-        'src/**/*books-reducer.js',
-        'src/**/*book-reducer.js',
+        'src/**/*categories-slice.js',
+        'src/**/*books-slice.js',
+        'src/**/*book-slice.js',
+        'src/**/*user-slice.js',
       ],
       rules: {
         'import/no-default-export': 'off',
